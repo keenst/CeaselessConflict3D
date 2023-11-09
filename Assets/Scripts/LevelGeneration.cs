@@ -26,11 +26,8 @@ public class LevelGeneration : MonoBehaviour
         new[] { 1, 1, 1, 1 },
     };
 
-    private PlayerMovement _playerMovement;
-
     public void Start()
     {
-        _playerMovement = player.GetComponent<PlayerMovement>();
         Generate(_map);
     }
 
