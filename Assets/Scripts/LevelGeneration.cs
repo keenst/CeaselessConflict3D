@@ -9,7 +9,8 @@ public class LevelGeneration : MonoBehaviour
     {
         Empty = 0,
         Wall = 1,
-        Player = 2
+        Player = 2,
+        WallWithTorch = 3
     }
     
     public Tilemap tilemap;
@@ -18,7 +19,7 @@ public class LevelGeneration : MonoBehaviour
 
     private readonly int[][] _map =
     {
-        new[] { 0, 1, 1, 1 },
+        new[] { 3, 1, 1, 1 },
         new[] { 0, 1, 0, 1 },
         new[] { 0, 1, 0, 1 },
         new[] { 1, 1, 1, 1 },
@@ -29,6 +30,17 @@ public class LevelGeneration : MonoBehaviour
     public void Start()
     {
         Generate(_map);
+        int childCount = tilemap.transform.childCount;
+        for (int i = 0; i < childCount - 1; i++)
+        {
+            string name = tilemap.transform.GetChild(i).name;
+            //Debug.Log(name);
+        }
+        
+        TileBase tile = tilemap.GetTile(new Vector3Int(0, 0));
+        TileData data = new();
+        tile.GetTileData(new Vector3Int(0, 0), tilemap, ref data);
+        //Debug.Log(data.gameObject.name);
     }
 
     private void Generate(IReadOnlyList<int[]> map)
@@ -44,18 +56,34 @@ public class LevelGeneration : MonoBehaviour
                     case TileType.Empty:
                         continue;
                     case TileType.Wall:
-                        tilemap.SetTile(new Vector3Int(x, y), dungeonTile);
+                        SpawnTile(x, y, false);
                         break;
                     case TileType.Player:
-                        tilemap.SetTile(new Vector3Int(x, y), dungeonTile);
+                        SpawnTile(x, y, false);
                         
                         Vector3 tileLocation = tilemap.CellToWorld(new Vector3Int(x, y));
                         player.transform.position = tileLocation + new Vector3(0.5F, 0, 0.5F);
+                        break;
+                    case TileType.WallWithTorch:
+                        SpawnTile(x, y, true);                        
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
         }
+    }
+
+    private void SpawnTile(int x, int y, bool torch)
+    {
+        tilemap.SetTile(new Vector3Int(x, y), dungeonTile);
+
+        //if (!torch) return;
+        
+        TileBase tile = tilemap.GetTile(new Vector3Int(x, y));
+        TileData data = new();
+        tile.GetTileData(new Vector3Int(x, y), tilemap, ref data);
+        if (torch) data.gameObject.GetComponent<TorchSpawner>().PlaceTorch();
+        //Debug.Log(data.gameObject.name);
     }
 }
