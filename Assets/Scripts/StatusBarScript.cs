@@ -3,19 +3,18 @@ using UnityEngine.UI;
 
 public class StatusBarScript : MonoBehaviour
 {
-    public Color fillColor;
-
     [Range(0, 1)] 
     public float fillAmount;
-
+    
+    public Color fillColor;
     public Image full;
-    public Image empty;
 
     private float _defaultX;
     
     public void Start()
     {
         _defaultX = full.rectTransform.position.x;
+        full.color = fillColor;
     }
     
     public void Update()
