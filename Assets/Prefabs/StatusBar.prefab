@@ -50,10 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1803f9e0290e7049bf17a3f3b6bebdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillColor: {r: 0, g: 0, b: 0, a: 0}
   fillAmount: 1
+  fillColor: {r: 0, g: 0, b: 0, a: 0}
   full: {fileID: 1630825626946681649}
-  empty: {fileID: 158870043675414298}
 --- !u!1 &6964481524448693592
 GameObject:
   m_ObjectHideFlags: 0

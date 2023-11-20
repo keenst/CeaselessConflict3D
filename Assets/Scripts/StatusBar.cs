@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusBarScript : MonoBehaviour
+public class StatusBar : MonoBehaviour
 {
     [Range(0, 1)] 
     public float fillAmount;
