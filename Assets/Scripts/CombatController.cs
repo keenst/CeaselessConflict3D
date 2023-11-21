@@ -3,12 +3,15 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
 	public MenuController menuController;
+	public GameObject playerStatus;
+	public GameObject enemyStatus;
+
+	public bool isPlayersTurn;
 
 	private Fighter _player;
 	private Fighter _enemy;
 
 	private int _playerInput;
-	private bool _isPlayersTurn;
 
 	public void Start()
 	{
@@ -21,22 +24,23 @@ public class CombatController : MonoBehaviour
 	// TODO: struct for action
 	public void OnPlayerAction(string action)
 	{
-		_isPlayersTurn = false;
+		isPlayersTurn = false;
 
 		switch (action)
 		{
 			case "Attack":
 				{
-					Debug.Log("Attack");
+					Attack(ref _enemy, 5);
 					break;
 				}
 			case "Run":
 				{
-					Debug.Log("Run");
+					EndBattle();
 					break;
 				}
 		}
 
+		GetEnemyAction();
 	}
 
 	public void StartBattle(Fighter player, Fighter enemy)
@@ -44,7 +48,23 @@ public class CombatController : MonoBehaviour
 		_player = player;
 		_enemy = enemy;
 
+		menuController.gameObject.SetActive(true);
+		playerStatus.gameObject.SetActive(true);
+		enemyStatus.gameObject.SetActive(true);
+
 		StartPlayerTurn();
+	}
+
+	private void EndBattle()
+	{
+		menuController.gameObject.SetActive(false);
+		playerStatus.gameObject.SetActive(false);
+		enemyStatus.gameObject.SetActive(false);
+	}
+
+	private void Attack(ref Fighter target, float damage)
+	{
+		target.HP -= damage;
 	}
 
 	private void StartPlayerTurn()
@@ -57,8 +77,15 @@ public class CombatController : MonoBehaviour
 
 		Menu menu = new(buttons);
 
-		menuController.UpdateMenu(menu);
+		menuController.OpenMenu(menu);
 
-		_isPlayersTurn = true;
+		isPlayersTurn = true;
+	}
+
+	private void GetEnemyAction()
+	{
+		Attack(ref _player, 3);
+
+		isPlayersTurn = true;
 	}
 }

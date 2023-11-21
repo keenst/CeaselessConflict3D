@@ -9,9 +9,12 @@ public class MenuController : MonoBehaviour
 	public CombatController combatController;
 
 	private int _selectedIndex;
+	private int _buttonCount;
 
-	public void UpdateMenu(Menu newMenu)
+	public void OpenMenu(Menu newMenu)
 	{
+		_buttonCount = 0;
+
 		for (int i = 0; i < buttons.Count; i++)
 		{
 			if (i >= (newMenu.Buttons).Length)
@@ -20,8 +23,14 @@ public class MenuController : MonoBehaviour
 				continue;
 			}
 
+			buttons[i].gameObject.SetActive(true);
 			buttons[i].SetTitle(newMenu.Buttons[i]);
+
+			_buttonCount++;
 		}
+
+		buttons[0].SetHighlighted(true);
+		_selectedIndex = 0;
 	}
 
 	public void OnScroll(InputAction.CallbackContext context)
@@ -30,12 +39,16 @@ public class MenuController : MonoBehaviour
 
 		float direction = context.ReadValue<float>();
 
-		_selectedIndex = Mod((_selectedIndex + (int)direction), buttons.Count - 1);
+		int prevSelected = _selectedIndex;
+		_selectedIndex = Mod((_selectedIndex + (int)direction), _buttonCount);
+
+		buttons[prevSelected].SetHighlighted(false);
+		buttons[_selectedIndex].SetHighlighted(true);
 	}
 
 	public void OnSelect(InputAction.CallbackContext context)
 	{
-		if (!context.started) return;
+		if (!context.started || !combatController.isPlayersTurn) return;
 
 		combatController.OnPlayerAction(buttons[_selectedIndex].Title);
 	}
