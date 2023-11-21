@@ -3,8 +3,8 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
 	public MenuController menuController;
-	public GameObject playerStatus;
-	public GameObject enemyStatus;
+	public StatusModule playerStatus;
+	public StatusModule enemyStatus;
 
 	public bool isPlayersTurn;
 
@@ -65,6 +65,9 @@ public class CombatController : MonoBehaviour
 	private void Attack(ref Fighter target, float damage)
 	{
 		target.HP -= damage;
+	
+		playerStatus.SetHP(_player.HP, _player.HPMax);
+		enemyStatus.SetHP(_enemy.HP, _enemy.HPMax);
 	}
 
 	private void StartPlayerTurn()
