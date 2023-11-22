@@ -65,7 +65,7 @@ public class CombatController : MonoBehaviour
 	private void Attack(ref Fighter target, float damage)
 	{
 		target.HP -= damage;
-	
+
 		playerStatus.SetHP(_player.HP, _player.HPMax);
 		enemyStatus.SetHP(_enemy.HP, _enemy.HPMax);
 	}

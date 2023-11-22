@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 182261557}
-  playerStatus: {fileID: 1585704070}
-  enemyStatus: {fileID: 636963121}
+  playerStatus: {fileID: 1585704071}
+  enemyStatus: {fileID: 636963122}
   isPlayersTurn: 0
 --- !u!114 &182261557
 MonoBehaviour:
@@ -649,6 +649,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fb3de7cf-a6cd-4276-93e4-bc6fda278542
     m_ActionName: Gameplay/Turn[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c79a810f-8527-421d-87c2-e6d482f27ba5
+    m_ActionName: Menu/Scroll[/Keyboard/s,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7bdb96f4-449d-464b-8349-6ea14f1dce04
+    m_ActionName: Menu/Select[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -766,11 +774,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5a0ebc67542934896d8350e24e7f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &636963121 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5092742630590994372, guid: b43b5bf8d39badf45bfb04079530eb53, type: 3}
+--- !u!114 &636963122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9026899503317716833, guid: b43b5bf8d39badf45bfb04079530eb53, type: 3}
   m_PrefabInstance: {fileID: 193238448}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5ac29a88c6b9e46ae7ec995872bbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,43 +1063,43 @@ Tilemap:
       e33: 0
   - m_RefCount: 0
     m_Data:
-      e00: 6.615008e-38
+      e00: 0
       e01: 0
-      e02: 8.301049e+19
-      e03: 8.301049e+19
+      e02: -2.5749183e+29
+      e03: -2.5749183e+29
       e10: 0
       e11: 0
-      e12: 5.83e-43
-      e13: 5.83e-43
-      e20: -4.3999823e+26
-      e21: 1.5519935e-19
-      e22: -3.7118593e-19
-      e23: 1.6019446e+29
-      e30: 4.5905e-41
-      e31: 5.86e-43
-      e32: 5.83e-43
-      e33: 5.86e-43
+      e12: 6.45e-43
+      e13: 6.45e-43
+      e20: 1.2876722e-13
+      e21: -1.5246892e+14
+      e22: 0.000000001273535
+      e23: 1.100173e-19
+      e30: 4.5904e-41
+      e31: 6.47e-43
+      e32: 6.46e-43
+      e33: 6.49e-43
   - m_RefCount: 0
     m_Data:
       e00: 0
       e01: 0
-      e02: 8.301049e+19
-      e03: 8.301049e+19
+      e02: 0
+      e03: 0
       e10: 0
       e11: 0
-      e12: 5.83e-43
-      e13: 5.83e-43
-      e20: -4.3999823e+26
-      e21: 1.5519935e-19
-      e22: -3.2736851e-19
-      e23: 1.6019446e+29
-      e30: 4.5905e-41
-      e31: 5.86e-43
-      e32: 5.83e-43
-      e33: 5.86e-43
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 0
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 0
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.3312e-41, g: 3.3312e-41, b: 3.3312e-41, a: 3.3312e-41}
+    m_Data: {r: 3.3401e-41, g: 3.3401e-41, b: 3.3401e-41, a: 3.3401e-41}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -1473,11 +1487,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1585704070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5092742630590994372, guid: b43b5bf8d39badf45bfb04079530eb53, type: 3}
+--- !u!114 &1585704071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9026899503317716833, guid: b43b5bf8d39badf45bfb04079530eb53, type: 3}
   m_PrefabInstance: {fileID: 4006083086631958242}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5ac29a88c6b9e46ae7ec995872bbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2089961012
 GameObject:
   m_ObjectHideFlags: 0
