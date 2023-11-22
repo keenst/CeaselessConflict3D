@@ -11,7 +11,7 @@ public class LevelGeneration : MonoBehaviour
         Wall = 1,
         Player = 2
     }
-    
+
     public Tilemap tilemap;
     public RuleTile dungeonTile;
     public GameObject player;
@@ -41,8 +41,8 @@ public class LevelGeneration : MonoBehaviour
             for (int x = 0; x < map[y].Length; x++)
             {
                 TileType type = (TileType)map[y][x];
-                
-                switch (type)
+
+				switch (type)
                 {
                     case TileType.Empty:
                         continue;
@@ -51,7 +51,7 @@ public class LevelGeneration : MonoBehaviour
                         break;
                     case TileType.Player:
                         tilemap.SetTile(new Vector3Int(x, y), dungeonTile);
-                        
+
                         Vector3 tileLocation = tilemap.CellToWorld(new Vector3Int(x, y));
                         player.transform.position = tileLocation + new Vector3(0.5F, 0, 0.5F);
                         break;
