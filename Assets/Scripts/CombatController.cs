@@ -15,10 +15,7 @@ public class CombatController : MonoBehaviour
 
 	public void Start()
 	{
-		Fighter player = new(20, 20);
-		Fighter enemy = new(20, 20);
-
-		StartBattle(player, enemy);
+		EndBattle();
 	}
 
 	// TODO: struct for action
@@ -68,6 +65,11 @@ public class CombatController : MonoBehaviour
 
 		playerStatus.SetHP(_player.HP, _player.HPMax);
 		enemyStatus.SetHP(_enemy.HP, _enemy.HPMax);
+
+		if (_player.HP <= 0 || _enemy.HP <= 0)
+		{
+			EndBattle();
+		}
 	}
 
 	private void StartPlayerTurn()
