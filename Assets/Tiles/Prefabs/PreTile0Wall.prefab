@@ -49,12 +49,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
       propertyPath: m_CastShadows
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
+      propertyPath: m_ImportantGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
       propertyPath: m_Name
       value: PreTile0Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c918fce271e01064cbb6fad9aceed62a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
