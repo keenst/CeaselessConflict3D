@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 
 	public void Start()
 	{
-		Vector3[] lights = levelGeneration.Generate();
-		lightController.SetLights(lights);
+		//Vector3[] lights = levelGeneration.Generate();
+		//lightController.SetLights(lights);
 	}
 }

@@ -1,10 +1,19 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class LevelGeneration : MonoBehaviour
 {
+	public List<LevelSegment> levels = new();
+
+	public void Start()
+	{
+		LevelSegment start = new(Direction.Up);
+		LevelSegment next = new(Direction.Left);
+
+		start.up = new Option<LevelSegment>(next);
+		next.down = new Option<LevelSegment>(start);
+	}
+	/*
 	private enum TileType
 	{
 		Empty = 0,
@@ -20,12 +29,12 @@ public class LevelGeneration : MonoBehaviour
 
 	private readonly int[][] _map =
 	{
-		new[] { 0, 1, 1, 1 },
-		new[] { 0, 1, 0, 1 },
-		new[] { 0, 1, 0, 1 },
-		new[] { 1, 3, 1, 1 },
-		new[] { 1, 2, 1, 1 },
-		new[] { 1, 1, 1, 1 },
+		new[] { 0, 0, 0, 0, 0, 0, 0 },
+		new[] { 0, 1, 0, 1, 0, 0, 0 },
+		new[] { 0, 1, 0, 1, 0, 0, 0 },
+		new[] { 0, 3, 0, 1, 0, 1, 0 },
+		new[] { 1, 2, 1, 1, 0, 1, 0 },
+		new[] { 1, 1, 1, 3, 1, 0, 0 },
 	};
 
 	private PlayerMovement _playerMovement;
@@ -88,4 +97,5 @@ public class LevelGeneration : MonoBehaviour
 
 		return lights.ToArray();
 	}
+	*/
 }
